@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.header .links ul');
 
     menuIcon.addEventListener('click', function() {
-        // Toggle the display of the navigation links
         if (navLinks.style.display === 'block') {
             navLinks.style.display = 'none';
         } else {
