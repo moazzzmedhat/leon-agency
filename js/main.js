@@ -1,26 +1,21 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.header .links .icon');
-    const navLinks = document.querySelector('.header .links ul');
+    const navLinks = document.querySelector('.header .links .menu');
 
     menuIcon.addEventListener('click', function() {
-        if (navLinks.style.display === 'block') {
-            navLinks.style.display = 'none';
-        } else {
-            navLinks.style.display = 'block';
-        }
+        navLinks.classList.toggle('active');
     });
 
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.header .links')) {
-            navLinks.style.display = 'none';
+            navLinks.classList.remove('active');
         }
     });
 
-    const navItems = document.querySelectorAll('.header .links ul li a');
+    const navItems = document.querySelectorAll('.header .links .menu li a');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
-            navLinks.style.display = 'none';
+            navLinks.classList.remove('active');
         });
     });
 }); 
