@@ -1,0 +1,528 @@
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --main-duration: 0.5s;
+}
+
+
+
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Applies box-sizing: border-box to all elements,
+    ensuring padding and border are included in the element's width/height.
+    The -webkit- and -moz- prefixes ensure compatibility with older browsers. 
+    
+    */
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Adds left and right padding for inner spacing and centers the container horizontally with margin: auto. */
+}
+
+/* small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container1 {
+        padding-left: 180px;
+    }
+}
+
+
+.header {
+    padding: 20px;
+}
+
+.header .container {
+    display: flex;
+    /* by3ml space been el elements */
+    justify-content: space-between;
+    /* by3ml space been el elements  */
+    align-items: center;
+    /* 3shan ykono align 3la nafs el level */
+    /*Uses Flexbox to arrange elements inside the header container:
+    display: flex: Enables Flexbox layout.
+    justify-content: space-between: Distributes space between items evenly.
+    align-items: center: Aligns items vertically in the center */
+}
+
+.header .logo {
+    width: 60px;
+}
+
+.header .links {
+    position: relative;
+    /* Positions the .links container relative to 
+    allow absolutely positioned child elements (like the dropdown menu) to be aligned relative to it. */
+}
+
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+    /* When .links is hovered, the second bar in the menu icon (span:nth-child(2)) expands to full width with a transition effect. */
+}
+
+.header .links .icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* Styles the menu icon:
+    width: 30px: Sets its width.
+    display: flex: Makes the spans inside flex items.
+    flex-wrap: wrap: Allows the spans to stack on top of each other.
+    justify-content: flex-end: Aligns the spans to the right. */
+}
+
+.header .links .icon span {
+    background-color: #333;
+    margin-bottom: 5px;
+    height: 2px;
+    /* Each span in the menu icon is styled as a thin, dark bar (height: 2px) */
+}
+
+.header .links .icon span:first-child {
+    width: 100%;
+
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 60%;
+    transition: var(--main-duration);
+
+}
+
+.header .links .icon span:last-child {
+    width: 100%;
+
+}
+
+.header .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    top: calc(100% + 15px);
+    display: none;
+    z-index: 1;
+    /* Styles the dropdown menu:
+    Removes default list styles (list-style: none).
+    Positions it absolutely below the parent (top: calc(100% + 15px)).
+    Sets a minimum width of 200px.
+    Initially hides the menu (display: none).
+    Ensures it appears on top of other elements (z-index: 1). */
+}
+
+.header .links ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+    /* Adds a triangular arrow pointing to the menu:
+    Created using border-style: solid and border-color.
+    Positioned above the menu (top: -20px) and aligned to the right. */
+}
+
+.header .links:hover ul {
+    display: block;
+    /* When the parent .links is hovered, the dropdown menu becomes visible (display: block). */
+}
+
+.header .links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: var(--main-duration);
+    /* Styles each dropdown link:
+    Makes the link block-level (display: block) for full-width clickable areas.
+    Adds 15px padding for spacing.
+    Removes underlines (text-decoration: none) and sets the text color */
+}
+
+.header .links ul li a:hover {
+    padding-left: 25px;
+}
+
+.header .links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.special-heading+p {
+    margin: -30px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+
+    .special-heading+p {
+        margin-top: -20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.landing {
+    width: 100%;
+    height: calc(100vh - 64px);
+    background-image: url(/images/landing.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.landing .text-intro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 100%;
+}
+
+.landing .text-intro h1 {
+    font-size: 50px;
+    color: #10cab7;
+    margin: 0;
+}
+
+.landing .text-intro p {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.features {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    background-color: #f6f6f6;
+
+
+
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    width: 100%;
+
+}
+
+.features .feat {
+    padding: 20px;
+    text-align: center;
+
+}
+
+.features .feat i {
+    color: #10cab7;
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.features .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+}
+
+.services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.services .services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+    .services .services-content .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.services .services-content .srv i {
+    color: #10cab7;
+    flex-basis: 60px;
+}
+
+.services .services-content .srv .text {
+    flex: 1;
+}
+
+.services .services-content .srv .text h3 {
+    margin: 0 0 20px;
+}
+
+.services .services-content .srv .text p {
+    color: #444;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.services .services-content .image {
+    text-align: center;
+    position: relative;
+}
+
+.services .services-content .image::before {
+    content: "";
+    background-color: #10cab7;
+    width: 100px;
+    height: calc(100% + 100px);
+    top: -50px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.services .services-content .image img {
+    width: 260px;
+}
+
+@media (max-width: 1199px) {
+    .image-column {
+        display: none;
+    }
+}
+
+
+.portfolio {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+}
+
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 80px;
+}
+
+.portfolio .portfolio-content .card img {
+    max-width: 100%;
+}
+
+.portfolio .portfolio-content .card .info {
+    padding: 20px;
+}
+
+.portfolio .portfolio-content .card .info h3 {
+    margin: 0;
+}
+
+.portfolio .portfolio-content .card .info p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.about {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.about .about-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+@media (max-width: 991px) {
+    .about .about-content .image {
+        margin: 0 auto 60px;
+    }
+}
+
+.about .about-content .image::before {
+    content: "";
+    position: absolute;
+    background-color: #ebeced;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+}
+
+.about .about-content .image::after {
+    top: -40px;
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    z-index: -1;
+    right: -150px;
+}
+
+@media (max-width: 991px) {
+
+    .about .about-content .image::before,
+    .about .about-content .image::after {
+        display: none;
+    }
+}
+
+.about .about-content .image img {
+    max-width: 100%;
+}
+
+.about .about-content .text {
+    flex-basis: calc(100% - 500px);
+}
+
+.about .about-content .text p:first-of-type {
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+.about .about-content .text hr {
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+
+.about .about-content .text p:last-of-type {
+    line-height: 2;
+    color: #777;
+}
+
+.contact {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+}
+
+.contact .info {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    text-align: center;
+}
+
+.contact .info .label {
+    font-size: 35px;
+    font-weight: 800;
+    color: #3d4455;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.contact .info .link {
+
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 767px) {
+
+    .contact .info .label,
+    .contact .info .link {
+        font-size: 25px;
+    }
+}
+
+.footer{
+    color: white;
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 18px;
+}
+
+.footer span{
+    font-weight: bold;
+    color: var(--main-color);
+}
