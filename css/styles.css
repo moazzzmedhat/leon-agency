@@ -126,6 +126,11 @@
         display: none;
         z-index: 1;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+
+    .header .links .menu.active {
+        display: block;
     }
 
     .header .links .menu::before {
@@ -144,10 +149,12 @@
         text-decoration: none;
         color: #333;
         transition: var(--main-duration);
+        font-size: 16px;
     }
 
     .header .links .menu li a:hover {
         padding-left: 25px;
+        background-color: #f0f0f0;
     }
 
     .header .links .menu li:not(:last-child) a {
@@ -161,6 +168,7 @@
             right: 0;
             top: 100%;
             box-shadow: none;
+            border-radius: 0;
         }
         
         .header .links .menu::before {
@@ -168,7 +176,7 @@
         }
         
         .header .links .menu li a {
-            padding: 12px;
+            padding: 12px 15px;
             font-size: 16px;
         }
     }
