@@ -85,13 +85,6 @@
 
     .header .links {
         position: relative;
-        /* Positions the .links container relative to 
-        allow absolutely positioned child elements (like the dropdown menu) to be aligned relative to it. */
-    }
-
-    .header .links:hover .icon span:nth-child(2) {
-        width: 100%;
-        /* When .links is hovered, the second bar in the menu icon (span:nth-child(2)) expands to full width with a transition effect. */
     }
 
     .header .links .icon {
@@ -99,37 +92,29 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        /* Styles the menu icon:
-        width: 30px: Sets its width.
-        display: flex: Makes the spans inside flex items.
-        flex-wrap: wrap: Allows the spans to stack on top of each other.
-        justify-content: flex-end: Aligns the spans to the right. */
+        cursor: pointer;
     }
 
     .header .links .icon span {
         background-color: #333;
         margin-bottom: 5px;
         height: 2px;
-        /* Each span in the menu icon is styled as a thin, dark bar (height: 2px) */
+        transition: var(--main-duration);
     }
 
     .header .links .icon span:first-child {
         width: 100%;
-
     }
 
     .header .links .icon span:nth-child(2) {
         width: 60%;
-        transition: var(--main-duration);
-
     }
 
     .header .links .icon span:last-child {
         width: 100%;
-
     }
 
-    .header .links ul {
+    .header .links .menu {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -140,15 +125,10 @@
         top: calc(100% + 15px);
         display: none;
         z-index: 1;
-        /* Styles the dropdown menu:
-        Removes default list styles (list-style: none).
-        Positions it absolutely below the parent (top: calc(100% + 15px)).
-        Sets a minimum width of 200px.
-        Initially hides the menu (display: none).
-        Ensures it appears on top of other elements (z-index: 1). */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .header .links ul::before {
+    .header .links .menu::before {
         content: "";
         border-width: 10px;
         border-style: solid;
@@ -156,37 +136,42 @@
         position: absolute;
         right: 5px;
         top: -20px;
-        /* Adds a triangular arrow pointing to the menu:
-        Created using border-style: solid and border-color.
-        Positioned above the menu (top: -20px) and aligned to the right. */
     }
 
-    .header .links:hover ul {
-        display: block;
-        /* When the parent .links is hovered, the dropdown menu becomes visible (display: block). */
-    }
-
-    .header .links ul li a {
+    .header .links .menu li a {
         display: block;
         padding: 15px;
         text-decoration: none;
         color: #333;
         transition: var(--main-duration);
-        /* Styles each dropdown link:
-        Makes the link block-level (display: block) for full-width clickable areas.
-        Adds 15px padding for spacing.
-        Removes underlines (text-decoration: none) and sets the text color */
     }
 
-    .header .links ul li a:hover {
+    .header .links .menu li a:hover {
         padding-left: 25px;
     }
 
-    .header .links ul li:not(:last-child) a {
+    .header .links .menu li:not(:last-child) a {
         border-bottom: 1px solid #ddd;
     }
 
-
+    /* Mobile Menu Styles */
+    @media (max-width: 767px) {
+        .header .links .menu {
+            width: 100%;
+            right: 0;
+            top: 100%;
+            box-shadow: none;
+        }
+        
+        .header .links .menu::before {
+            display: none;
+        }
+        
+        .header .links .menu li a {
+            padding: 12px;
+            font-size: 16px;
+        }
+    }
 
     .special-heading {
         color: #ebeced;
